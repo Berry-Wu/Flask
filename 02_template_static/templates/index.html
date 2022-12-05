@@ -3,15 +3,21 @@
 <head>
     <meta charset="utf-8">
     <title>{{ name }}'s page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" type="text/css">
+    <link rel="icon" href="{{url_for('static', filename='images/favicon.ico')}}">
 </head>
 <body>
-    <h2>{{ name }}'s boke</h2>
+    <h2>
+        <img alt="Avatar" class="avatar" src="{{url_for('static', filename='images/avatar.png')}}">
+        {{ name }}'s boke
+    </h2>
     <p>{{ movies|length }} Titles</p>
-    <ul>
+    <ul class="movie-list"s>
         {% for movie in movies %}  {# 迭代 movies 变量 #}
         <li>{{ movie.title }} - {{ movie.year }}</li>  {# 等同于 movie['title'] #}
         {% endfor %}  {# 使用 endfor 标签结束 for 语句 #}
     </ul>
+    <img alt="Walking Totoro" class="totoro" src="{{ url_for('static', filename='images/totoro.gif')}}">
     <footer>
         <small>&copy; 2022 <a href="https://www.baidu.com">wzy</a></small>
     </footer>
